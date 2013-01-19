@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: c5e311ab043152381c5190d5d42836a2cf07defa
+  specs:
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+
+GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
   revision: 2e7b35d7948cefb2bba96438873d7f7bb1961a03
   specs:
@@ -79,11 +86,23 @@ GIT
       activesupport (>= 3.0)
       sprockets (~> 2.8)
 
+GIT
+  remote: git://github.com/tvdeyen/acts-as-taggable-on.git
+  revision: a42b80675a2a394ef0344424effed2b72c5290cf
+  branch: rails4
+  specs:
+    acts-as-taggable-on (2.3.3)
+      rails (~> 4.0.0.beta)
+
 GEM
   remote: https://rubygems.org/
   specs:
     atomic (1.0.1)
     builder (3.1.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    coderay (1.0.7)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -91,6 +110,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    font-awesome-sass-rails (3.0.0.1)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     hike (1.2.1)
     i18n (0.6.1)
     jbuilder (1.0.2)
@@ -98,22 +120,32 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (3.0.1)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.6)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.7.1)
     mime-types (1.19)
     minitest (4.4.0)
     multi_json (1.5.0)
     polyglot (0.3.3)
+    pry (0.9.9.6)
+      coderay (~> 1.0.5)
+      method_source (~> 0.7.1)
+      slop (>= 2.4.4, < 3)
     rack (1.4.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.2.2)
     sass (3.2.5)
+    slop (2.4.4)
     sprockets (2.8.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -139,11 +171,18 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-deprecated_finders!
+  acts-as-taggable-on!
   arel!
+  carrierwave
   coffee-rails!
+  font-awesome-sass-rails
+  formtastic!
   jbuilder (~> 1.0.1)
   jquery-rails
+  jquery-ui-rails (>= 3.0.1)
+  pry
   rails!
+  redcarpet
   sass-rails!
   sprockets-rails!
   sqlite3

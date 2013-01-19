@@ -1,0 +1,6 @@
+<h1><%= @project.title %> <small><%= icon_tag(:user) %><%= @project.contact %></small></h1>
+<p><%= link_to icon_tag("external-link") + @project.link, @project.link, target: "_blank" %></p>
+<div class="well">
+	<%= @project.rendered_description.html_safe %>
+</div>
+<p>STAR: <%= icon_tag(:star) %> <i class="icon-star-empty star-hover"></i>

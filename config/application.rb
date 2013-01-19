@@ -13,5 +13,11 @@ module Provo
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    
+    console do
+      require "pry"
+      config.console = Pry
+    end
+    
   end
 end

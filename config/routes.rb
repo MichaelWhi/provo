@@ -1,4 +1,12 @@
 Provo::Application.routes.draw do
+  
+  resources :projects do
+    resources :attachments, only: [:index, :new, :create, :destroy]
+    collection do 
+      get 'starred'
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
