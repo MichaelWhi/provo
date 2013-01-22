@@ -1,11 +1,17 @@
 Provo::Application.routes.draw do
+  root to: 'projects#index'
   
   resources :projects do
     resources :attachments, only: [:index, :new, :create, :destroy]
+    member do 
+      get 'qr'
+    end
     collection do 
       get 'starred'
     end
   end
+  
+  get '/:id/:title' => 'projects#show', :as => :project_with_title
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -38,6 +38,14 @@ h1 small {
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
+.inline-hints {
+	font-size: 10pt;
+	color: gray;
+	& a {
+		color: gray;
+	}
+}
+
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */

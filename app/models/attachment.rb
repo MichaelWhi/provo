@@ -1,7 +1,8 @@
 class Attachment < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   mount_uploader :file, FileUploader
-
+  validates :file, presence: true
+  
   belongs_to :project
 
   #one convenient method to pass jq_upload the necessary information
@@ -11,7 +12,7 @@ class Attachment < ActiveRecord::Base
       "size" => file.size,
       "url" => file.url,
 #      "thumbnail_url" => avatar.thumb.url,
-      "delete_url" => attachment_path(:id => id),
+#      "delete_url" => project_attachment_path(:id => id),
       "delete_type" => "DELETE"
     }
   end

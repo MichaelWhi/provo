@@ -1,9 +1,10 @@
 <%= semantic_form_for @project do |f| %>
   <%= f.inputs name: "Basic" do %>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, hint: link_to("Syntax overview", "http://daringfireball.net/projects/markdown/syntax#block", target: "_blank") %>
       <%= f.input :contact %>
       <%= f.input :link, as: :url %>
+	  <%= f.input :tag_list, hint: "separated with commas (,)" %>
     <% end %>
   <%= f.actions %>
 <% end %>

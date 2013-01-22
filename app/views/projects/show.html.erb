@@ -1,6 +1,38 @@
-<h1><%= @project.title %> <small><%= icon_tag(:user) %><%= @project.contact %></small></h1>
-<p><%= link_to icon_tag("external-link") + @project.link, @project.link, target: "_blank" %></p>
-<div class="well">
-	<%= @project.rendered_description.html_safe %>
+<div class="projecta">
+	<h1 class="fn"><%= link_to @project.title, project_with_title_path(@project, title: @project.title) %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @project.contact %></span> </small></h1>
+	<p><%= link_to icon_tag(:pencil) + "Edit", edit_project_path(@project) %></p>
+	<section>
+		<p><a href="#" data-reveal-id="qrModal"><%= icon_tag(:qrcode) %></a> <%= link_to @project.link, @project.link, target: "_blank" %></p>
+	<div class="well summary">
+		<%= @project.rendered_description.html_safe %>
+	</div>
+	</section>
+	<section style="margin-bottom: 50px;">
+	<% if @project.attachments.any? %>
+	  <ul>
+		<%= render @project.attachments %>
+	  </ul>
+	<% end %>
+		<%= render template: "attachments/new", locals:{ attachment: @project.attachments.build } %>
+	</section>
+
+	<p>STAR: <%= icon_tag(:star) %> <i class="icon-star-empty star-hover"></i></p>
+
+	<section class="project_meta">
+		<p><strong>Tags:</strong> 
+		<%= @project.tag_list.map do |tag|
+			content_tag(:span, tag, class: "tag")
+		end.join(", ").html_safe %>
+		</p>
+		<p>This project was started in <%= l @project.created_at, format: "%B %Y" %>
+		</p>
+	</section>
 </div>
-<p>STAR: <%= icon_tag(:star) %> <i class="icon-star-empty star-hover"></i>
+
+
+	<div id="qrModal" class="reveal-modal">
+	     <p style="text-align:center;"><%= image_tag qr_project_path(@project), alt: "QR Code" %><br>
+		<small><%= project_url(@project) %></small>
+		</p>
+	     <a class="close-reveal-modal">&#215;</a>
+	</div>

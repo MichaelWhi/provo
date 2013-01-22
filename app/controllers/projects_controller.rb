@@ -1,6 +1,11 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    respond_to do |format| 
+      format.html
+      format.json {render json: @projects, only: [:id, :title]}
+      format.xml {render xml: @projects, only: [:id, :title]}
+    end
   end
 
   def new
@@ -13,6 +18,16 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    respond_to do |format| 
+      format.html
+      format.json {render json: @project, only: [:id, :title, :rendered_description, :contact, :link]}
+      format.xml {render xml: @project, only: [:id, :title, :rendered_description, :contact, :link]}
+    end
+  end
+  
+  def qr
+    @project = Project.find(params[:id])
+    redirect_to "https://chart.googleapis.com/chart?cht=qr&choe=ISO-8859-1&chs=200x200&chl=#{project_url(@project)}"
   end
   
   def create
@@ -49,6 +64,6 @@ class ProjectsController < ApplicationController
   
   protected
   def project_params
-    params.require(:project).permit(:title, :contact, :description, :link, :tags)
+    params.require(:project).permit(:title, :contact, :description, :link, :tag_list)
   end
 end

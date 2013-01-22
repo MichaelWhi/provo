@@ -9,7 +9,7 @@ class AttachmentsController < ApplicationController
    end
 
    def create
-     @attachment = Attachment.new
+     @attachment = Project.find(params[:attachment][:project_id]).attachments.build
      @attachment.file = params[:attachment][:path].shift
      if @attachment.save
        respond_to do |format|

@@ -24,6 +24,16 @@ ProVo will ask you after a while whether the info is still current and you're st
 
 And everyone will benefit! :-)
 
+Features
+---
+
+* List, search and view projects, and use tags to find similar projects
+* enter new projects easily in less than 5 minutes
+* attach files to projects - as many as you want
+* format your project description (with Markdown), include pictures, links, ...
+* "star" projects, so you can remember them. They'll stay current even if the name changes (kinda bookmarking projects)
+* consume project info with the API: ProVo serves JSON, XML and implements the [projecta microformat](http://microformats.org/wiki/projecta)
+
 What dows ProVo stand for?
 ----
 

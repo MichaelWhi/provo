@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ./libs/JQuery-File-Upload
+//= require ./libs/jquery.reveal
