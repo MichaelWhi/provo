@@ -34,7 +34,7 @@ Features
 * "star" projects, so you can remember them. They'll stay current even if the name changes (kinda bookmarking projects)
 * consume project info with the API: ProVo serves JSON, XML and implements the [projecta microformat](http://microformats.org/wiki/projecta)
 
-What dows ProVo stand for?
+What does ProVo stand for?
 ----
 
 I had the idea very late and wasn't able to figure out that "ProVo" actually is not a good abbreviation for "PROject OVerview" ;-)
