@@ -40,6 +40,7 @@ class ProjectsController < ApplicationController
   
   def new
     @project = Project.new
+    @project.contact = current_user.name
   end
 
   def edit
