@@ -34,6 +34,35 @@ Features
 * "star" projects, so you can remember them. They'll stay current even if the name changes (kinda bookmarking projects)
 * consume project info with the API: ProVo serves JSON, XML and implements the [projecta microformat](http://microformats.org/wiki/projecta)
 
+Demo
+---
+
+The master branch runs at [provo.herokuapp.com](http://provo.herokuapp.com). 
+
+You might experience a delay for the first request. 
+
+Unfortunately, neither the icons nor the file upload currently work on heroku...
+So you might wanna try it quickly localy to see it in real action. :-)
+
+Install and Run 
+---
+
+* Get the source: `git clone git://github.com/MichaelWhi/provo.git`
+* OPTIONAL: install ruby 1.9.3: `rvm install 1.9.3 && rvm use 1.9.3` (get [get rvm](https://rvm.io))
+* install bundler: `gem install bundler --pre`
+* go in to the directory: `cd provo`
+* run `bundle install` to install dependencies (rails and other stuff)
+* run `bundle exec rake db:migrate` to setup the local sqlite database
+* run `bundle exec rails s` and surf to [localhost:3000](http://localhost:3000/) – exit the server with CTRL+C (CMD+.)
+* :-)
+
+Logo
+---
+
+So far, we have this very creative logo:
+
+![Logo](https://homepages.uni-paderborn.de/mwhittak/media/provo.png)
+
 What does ProVo stand for?
 ----
 
@@ -42,3 +71,5 @@ I had the idea very late and wasn't able to figure out that "ProVo" actually is 
 Copyright
 ---
 (c) 2013 Michael Whittaker
+
+(Please note that the use of the logo of the University of Paderborn is only for demo purpose; the logo is copyrighted.)
