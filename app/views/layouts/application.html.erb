@@ -22,14 +22,19 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title"><%= image_tag "upb_icon.png", class: "round" %> ProVo</h1>
+                <h1 class="title"><%= link_to image_tag("upb_icon.png", class: "round") + " ProVo", root_path, style: "color: white;" %></h1>
                 <%= render "layouts/navigation" %>
             </header>
         </div>
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-
+				<% if flash[:alert] %>
+				    <p class="flash-error"><%= flash[:alert] %></p>
+				  <% end %>
+				  <% if flash[:notice] %>
+				    <p class="flash-notice"><%= flash[:notice] %></p>
+				  <% end %>
                 <%= yield %>
 
             </div> <!-- #main -->
@@ -37,7 +42,7 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <p>footer</p>
+                <%= render "layouts/footer" %>
             </footer>
         </div>
     </body>

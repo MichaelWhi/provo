@@ -1,0 +1,10 @@
+<% if !params[:display] || params[:display] == "long" %>
+  <% unless params[:no_style] == "true" %>
+	  document.write('<link href="<%= asset_url("embed.css") %>" rel="stylesheet" />');
+  <% end %>
+	document.write('<%= escape_javascript(render(:partial => "embedded_project", :collection => @projects, :as => :project)) %>');
+<% elsif params[:display] == "list" %>
+	document.write('<ul>');
+	document.write('<%= escape_javascript(render(:partial => "projects/project", :collection => @projects, :as => :project)) %>');
+	document.write('</ul>');
+<% end %>

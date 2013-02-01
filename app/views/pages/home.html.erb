@@ -1,0 +1,15 @@
+<h1><%= t "welcome_to_provo" %></h1>
+
+<p>
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</p>
+
+<div class="well">
+  <h2><%= t ".some_projects" %> <small>(<%= Project.count %>)</small></h2>
+  <ul>
+	<%= render partial: "projects/project", collection: Project.all.limit(3), as: :project %>
+  </ul>
+  <%= link_to t(".show_all"), projects_path, class: "btn" %>
+
+  <%= link_to icon_tag(:plus)+t(".create_new"), new_project_path, class: "btn" %>
+</div>

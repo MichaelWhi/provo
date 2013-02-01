@@ -37,8 +37,13 @@ module BootstrapHelper
     klass = [name]
     klass << 'icon-white' if options[:white]
     klass << options[:class]
+    
+    if options[:nows]
+      nows = true
+      options.delete(:nows)
+    end
   
-    content_tag(:i, nil, class: klass.join( ' ' ) ) + "&nbsp;".html_safe
+    content_tag(:i, nil, class: klass.join( ' ' ) ) + (nows ? "" : "&nbsp;").html_safe
   end
 
   # Creates a tooltip alla Twitter Bootstrap.

@@ -1,1 +1,2 @@
-<li><%= icon_tag("download-alt") %> <%= link_to attachment.attributes["file"], attachment.file.url, title: "Download " + attachment.attributes["file"], target: "_blank" %></li>
+<li class="project_attachment">
+<%= image_tag icon_for(attachment.attributes["file"], size: "small"), size: "24x24" %> <%= link_to attachment.attributes["file"], attachment.file.url, title: "Download " + attachment.attributes["file"], target: "_blank" %>  <small class="attachment_created_at">(<%= l attachment.created_at.to_date, format: :short %>)</small></li>

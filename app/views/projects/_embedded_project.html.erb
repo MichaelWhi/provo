@@ -1,0 +1,5 @@
+<div id="provo_<%= project.id %>" class="provo_project">
+	<h2><%= link_to project.title, project_with_title_url(project, title: project.title), target: "_blank" %></h2>
+	<p class="provo_description"><%= project.rendered_description.html_safe %></p>
+	<p class="provo_meta"><small><strong class="provo_meta_name"><%= t(".contact") %>:</strong> <%= project.contact %> | <strong class="provo_meta_name"><%= t ".more_info" %></strong>: <%= link_to project.link.sub("https://", "").sub("http://", ""), project.link, target: "_blank" %></small></p>
+</div>

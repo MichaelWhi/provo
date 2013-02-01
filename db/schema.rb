@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130122142046) do
+ActiveRecord::Schema.define(version: 20130129194641) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20130122142046) do
     t.datetime "updated_at"
     t.text     "rendered_description"
     t.string   "slug"
+    t.integer  "user_id"
   end
 
   create_table "taggings", force: true do |t|
@@ -50,6 +51,18 @@ ActiveRecord::Schema.define(version: 20130122142046) do
 
   create_table "tags", force: true do |t|
     t.string "name"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.datetime "last_login_at"
+    t.string   "salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "meta"
   end
 
 end

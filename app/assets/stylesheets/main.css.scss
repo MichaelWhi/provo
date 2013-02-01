@@ -3,7 +3,7 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 h1 small {
@@ -15,6 +15,12 @@ h1 small {
     height: 18px;
     background: #00205B;
 }
+
+.hidden_hint {
+	display:none;
+	font-size: 10pt;
+}
+
 .round {
 	-webkit-border-radius: 13px;
 	border-radius: 13px;
@@ -44,6 +50,15 @@ h1 small {
 	& a {
 		color: gray;
 	}
+}
+
+footer {
+ & p {
+	font-size: 10pt;
+ }
+ & a {
+	color: white;
+ }
 }
 
 /* ==========================================================================
@@ -168,7 +183,7 @@ nav a:visited {
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* ==============
@@ -231,7 +246,7 @@ nav a:hover {
 
     nav a {
         float: left;
-        width: 27%;
+        min-width: 30px;
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;

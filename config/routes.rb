@@ -1,17 +1,30 @@
 Provo::Application.routes.draw do
-  root to: 'projects#index'
+  root to: 'high_voltage/pages#show', id: 'home'
+  
+  resource :user_session
+  
+  resources :users
   
   resources :projects do
     resources :attachments, only: [:index, :new, :create, :destroy]
     member do 
       get 'qr'
+      post 'star'
+      post 'unstar'
     end
     collection do 
       get 'starred'
+      get 'my'
     end
   end
   
-  get '/:id/:title' => 'projects#show', :as => :project_with_title
+  resources :ideas
+  
+  get '/pages/:id' => 'high_voltage/pages#show'
+  
+  get '/embed/:id' => "projects#embed", as: :embed, format: "js"
+  
+  get '/:id/:title' => 'projects#show', as: :project_with_title
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

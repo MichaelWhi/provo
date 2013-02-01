@@ -1,4 +1,4 @@
 <li>
 	<%= link_to project.title, project_with_title_path(project, title: project.title) %>
-	<%= truncate(project.description) %>
+	<small><%= truncate(strip_tags(project.rendered_description), length: 60) %></small>
 </li>

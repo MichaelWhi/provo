@@ -1,7 +1,32 @@
 <h1>Projects#index</h1>
-
+<small>
+  <% if params[:action] == "my" %>
+	<%= link_to "show all", projects_path %>
+  <% else %> 
+	<%= link_to "show mine", my_projects_path %></small>
+  <% end %> 
 <section>
 <ul>
 	<%= render @projects %>
 </ul>
 </section>
+<% if current_user %>
+	<%= link_to icon_tag(:plus)+t(".create_new"), new_project_path, class: "btn" %>
+<% end %>
+<br><br>
+<% if params[:action] == "my" %>
+<section class="well" style="width:70%;">
+	<label>Embed your projects: <input id="embed_script_tag" size="50" readonly="readonly" value="<script type='text/javascript' src='<%= embed_url(current_user.id, format: :js) %>'></script>"> </label><br>
+	<span class="hidden_hint" id="embed_script_hint">This is a <abbr title="Hypertext Markup Language">HTML</abbr> snippet. Copy and paste this at the position you want to show a full list of your projects on ProVo.</span>
+</section>
+<% end %>
+
+<script>
+jQuery(document).ready(function() {
+	$("#embed_script_tag").click(function(){
+	    // Select input field contents
+	    this.select();
+		$("#embed_script_hint").show();
+	});
+});
+</script>

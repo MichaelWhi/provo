@@ -11,7 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require ./libs/JQuery-File-Upload
 //= require ./libs/jquery.reveal
+//= require ./libs/jquery.tagsinput
+//= require md_preview
+//= require jquery.elastic

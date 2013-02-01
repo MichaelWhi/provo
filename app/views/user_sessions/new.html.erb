@@ -1,0 +1,13 @@
+<%= semantic_form_for @user_session, url: user_session_path do |f| %>
+	      <%= f.input :email %>
+	      <%= f.input :password %>
+	  	<%= f.actions do %>
+		   <%= f.action :submit, :as => :button, :label => "Login" %>
+		<% end %>
+<% end %>
+<br>
+<section class="well">
+	<h3>Don't have an account yet?</h3>
+	<p><%= link_to "Sign up in 30 seconds", new_user_path, class: "btn" %></p>
+	<p><small>This service currently is <em>not</em> connected with your IMT-Login.</small></p>
+</section>

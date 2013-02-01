@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   
   has_many :attachments
   
+  belongs_to :user
+  
   validates :title, :description, :contact, presence: true
   before_validation :smart_add_link_protocol
   

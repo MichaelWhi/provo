@@ -21,3 +21,7 @@ module Provo
     
   end
 end
+
+Provo::Application.configure do
+  config.filter_parameters << :password << :password_confirmation
+end

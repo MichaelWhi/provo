@@ -1,10 +1,25 @@
 <%= semantic_form_for @project do |f| %>
   <%= f.inputs name: "Basic" do %>
       <%= f.input :title %>
-      <%= f.input :description, hint: link_to("Syntax overview", "http://daringfireball.net/projects/markdown/syntax#block", target: "_blank") %>
+      <%= f.input :description, input_html: {"data-preview" => "true"} %>
       <%= f.input :contact %>
       <%= f.input :link, as: :url %>
 	  <%= f.input :tag_list, hint: "separated with commas (,)" %>
     <% end %>
   <%= f.actions %>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+	$('#project_tag_list').tagsInput({
+	   'height':'60px',
+	   'width':'100%',
+	   'interactive':true,
+	   'defaultText':'add a tag',
+	   'removeWithBackspace' : true,
+	   'maxChars' : 50,
+	   'placeholderColor' : '#00205B'
+	});
+  }
+  );
+</script>

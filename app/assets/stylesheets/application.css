@@ -12,4 +12,5 @@
  *= require _font-awesome
  *= require formtastic
  *= require_tree .
+ *= require md_preview
  */

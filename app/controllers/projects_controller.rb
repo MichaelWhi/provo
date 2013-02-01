@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :require_user, except: [:embed, :qr, :index, :show]
+  
   def index
     @projects = Project.all
     respond_to do |format| 
@@ -7,13 +9,42 @@ class ProjectsController < ApplicationController
       format.xml {render xml: @projects, only: [:id, :title]}
     end
   end
-
+  
+  def my
+    @projects = current_user.projects
+    render "index"
+  end
+  
+  def starred
+    @projects = current_user.starred
+    render "index"
+  end
+  
+  def star
+    @project = Project.find(params[:id])
+    current_user.star_project(@project)
+    respond_to do |format| 
+      format.html { redirect_to @project }
+      format.js
+    end
+  end
+  
+  def unstar
+    @project = Project.find(params[:id])
+    current_user.unstar_project(@project)
+    respond_to do |format| 
+      format.html { redirect_to @project }
+      format.js
+    end
+  end
+  
   def new
     @project = Project.new
   end
 
   def edit
     @project = Project.find(params[:id])
+    redirect_to @project unless @project.user == current_user
   end
 
   def show
@@ -32,6 +63,7 @@ class ProjectsController < ApplicationController
   
   def create
     @project = Project.new project_params
+    @project.user = current_user
     if @project.save
       redirect_to @project, notice: t("notice.saved")
     else
@@ -41,7 +73,7 @@ class ProjectsController < ApplicationController
   
   def update
     @project = Project.find(params[:id])
-    if @project.update_attributes(project_params)
+    if @project.user == current_user && @project.update_attributes(project_params)
       redirect_to @project, notice: t("notice.saved")
     else
       render "edit"
@@ -50,16 +82,16 @@ class ProjectsController < ApplicationController
   
   def destroy
     @project = Project.find(params[:id])
-    if @project.destroy 
+    if @project.user == current_user && @project.destroy 
       redirect_to projects_path, notice: t("notice.deleted")
     else
       redirect_to @project
     end
   end
   
-  def starred
-    @projects = Project.all
-    render "index"
+  def embed
+    @projects = User.find(params[:id]).projects
+#    @projects = Project.where(user_id: params[:id])
   end
   
   protected
