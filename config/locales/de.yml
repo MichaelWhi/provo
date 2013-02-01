@@ -1,4 +1,9 @@
 de:
+  notice:
+    saved: "Gespeichert!"
+    deleted: "Gelöscht!"
+    not_deleted: "Oops, wir konnte das leider nicht löschen - sorry!"
+    not_saved: "Oops, wir konnte das leider nicht speichern - sorry!"
   fileupload:
     add_files: "Dateien hinzufügen"
     start_upload: "Upload starten"

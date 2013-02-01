@@ -11,6 +11,20 @@ h1 small {
 	font-size: 14pt;
 }
 
+
+$sradius: 5px;
+
+.flash-notice {
+	background-color: #bbeeff;
+	-webkit-border-radius: $sradius;
+	border-radius: $sradius;
+	-moz-border-radius: $sradius;
+	-o-border-radius: $sradius;
+	padding-left: 5px;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
 .bar {
     height: 18px;
     background: #00205B;
@@ -21,11 +35,14 @@ h1 small {
 	font-size: 10pt;
 }
 
+
+$radius: 13px;
+
 .round {
-	-webkit-border-radius: 13px;
-	border-radius: 13px;
-	-moz-border-radius: 13px;
-	-o-border-radius: 13px;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+	-moz-border-radius: $radius;
+	-o-border-radius: $radius;
 }
 
 .well {
@@ -42,6 +59,10 @@ h1 small {
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.center {
+	text-align: center;
 }
 
 .inline-hints {

@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
     if @project.user == current_user && @project.update_attributes(project_params)
       redirect_to @project, notice: t("notice.saved")
     else
-      render "edit"
+      render "edit", notice: t("notice.not_saved")
     end
   end
   
@@ -85,7 +85,7 @@ class ProjectsController < ApplicationController
     if @project.user == current_user && @project.destroy 
       redirect_to projects_path, notice: t("notice.deleted")
     else
-      redirect_to @project
+      redirect_to @project, notice: t("notice.not_deleted")
     end
   end
   

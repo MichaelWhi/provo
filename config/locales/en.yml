@@ -20,11 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  notice:
+    saved: "Saved!"
+    deleted: "Deleted!"
+    not_deleted: "Oops, somehow we weren't able to delete this - sorry!"
+    not_saved: "Oops, we weren't able to save that - sorry!"
   fileupload:
     add_files: "Add files..."
     start_upload: "Start upload"
     cancel_upload: "Cancel upload"
-    delete_multi: "Delete"
-    delete: "Löschen"
+    delete_multi: "Delete selection"
+    delete: "Delete"
   

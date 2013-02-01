@@ -6,7 +6,9 @@
       <%= f.input :link, as: :url %>
 	  <%= f.input :tag_list, hint: "separated with commas (,)" %>
     <% end %>
-  <%= f.actions %>
+  <%= f.actions do %>
+	<%= f.submit class: "btn", style: "padding:8px;" %>
+  <% end %>
 <% end %>
 
 <script>
