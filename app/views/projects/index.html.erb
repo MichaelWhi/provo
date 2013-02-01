@@ -1,9 +1,9 @@
-<h1>Projects#index</h1>
+<h1>Projects</h1>
 <small>
   <% if params[:action] == "my" %>
-	<%= link_to "show all", projects_path %>
-  <% else %> 
-	<%= link_to "show mine", my_projects_path %></small>
+	(showing your projects | <%= link_to "click here show all", projects_path %>)
+  <% elsif current_user %> 
+	(<%= link_to "click here to show your projects", my_projects_path %>)</small>
   <% end %> 
 <section>
 <ul>
