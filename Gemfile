@@ -55,6 +55,7 @@ group :production do
 	gem 'unicorn'
 	gem "fog", "~> 1.3.1"
 	gem 'pg'
+	gem 'dalli'
 end
 
 # Deploy with Capistrano
