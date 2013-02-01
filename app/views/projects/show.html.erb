@@ -6,7 +6,7 @@
 	      <%= link_to icon_tag(:star), unstar_project_path(@project), method: :post, remote: true, id: "starLink" %>
 		<% end %>
 	<% end %> 
-	<%= link_to @project.title, project_with_title_path(@project, title: @project.title, class: "fn") %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @project.contact %></span> </small></h1>
+	<%= link_to @project.title, project_with_title_path(@project, title: @project.title), class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @project.contact %></span> </small></h1>
 	<% if @project.user == current_user %>
 	<p><%= link_to icon_tag(:pencil) + "Edit", edit_project_path(@project) %></p>
 	<% end %>
