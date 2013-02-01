@@ -39,7 +39,12 @@ class User < ActiveRecord::Base
   
   def starred?(project)
     thing = (project.is_a?(Project) ? project.id : project.to_i)
-    self.starred_projects.include?(thing)
+    self.starred_ids.include?(thing)
   end
   
+  
+  protected
+  def starred_ids
+    self.starred_projects || []
+  end
 end
