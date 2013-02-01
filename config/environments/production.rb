@@ -81,7 +81,4 @@ Provo::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  
-  # Avoid db connect on asset precompile
-  config.assets.initialize_on_precompile = false
 end
