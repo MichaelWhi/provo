@@ -26,5 +26,5 @@ Provo::Application.configure do
   config.filter_parameters << :password << :password_confirmation
 
   # Avoid db connect on asset precompile
-  config.assets.initialize_on_precompile = false
+  # config.assets.initialize_on_precompile = false
 end
