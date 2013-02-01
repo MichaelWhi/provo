@@ -1,4 +1,6 @@
 if Rails.env.production?
+  
+  # https://devcenter.heroku.com/articles/mandrill#sending-with-smtp
   ActionMailer::Base.smtp_settings = {
       :port =>           '587',
       :address =>        'smtp.mandrillapp.com',
