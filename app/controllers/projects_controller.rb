@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  before_filter :require_user, except: [:embed, :qr, :index, :show]
+  before_filter :require_user, except: [:embed, :qr, :index, :show, :tags]
+  include ProjectsHelper
   
   def index
     @projects = Project.all
+    @tags = project_tags(15)
     respond_to do |format| 
       format.html
       format.json {render json: @projects, only: [:id, :title]}
@@ -12,11 +14,28 @@ class ProjectsController < ApplicationController
   
   def my
     @projects = current_user.projects
+    @tags = @projects.flat_map(&:tags).uniq # what about @projects.tag_counts_on(:tags) ?
     render "index"
+  end
+
+  def tags
+    @tags = Project.all_tag_counts.order("tags.name asc").limit(1000)
+    @cloud_tags = project_tags(30).shuffle
+  end
+  
+  def tag
+    @tags = project_tags(15)
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+      render "index"
+    else
+      redirect_to projects_path
+    end
   end
   
   def starred
     @projects = current_user.starred
+    @tags = @projects.flat_map(&:tags).uniq
     render "index"
   end
   
@@ -94,6 +113,7 @@ class ProjectsController < ApplicationController
     @projects = User.find(params[:id]).projects
 #    @projects = Project.where(user_id: params[:id])
   end
+
   
   protected
   def project_params

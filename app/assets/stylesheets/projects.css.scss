@@ -8,3 +8,18 @@
 .attachment_created_at {
 	color: gray;
 }
+
+#tag_link_list p, #tag_link_list a {
+	font-size: 9pt;
+	color: gray;
+}
+
+.active_tag {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.tc1 { font-size: 1.0em; }
+.tc2 { font-size: 1.2em; }
+.tc3 { font-size: 1.4em; }
+.tc4 { font-size: 1.6em; }
