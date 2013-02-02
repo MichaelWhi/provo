@@ -29,9 +29,10 @@ Features
 
 * List, search and view projects, and use tags to find similar projects
 * enter new projects easily in less than 5 minutes
-* attach files to projects - as many as you want
+* attach files to projects - as many as you want (images, pdf, doc, zip, videos,  code, ...)
 * format your project description (with Markdown), include pictures, links, ...
 * "star" projects, so you can remember them. They'll stay current even if the name changes (kinda bookmarking projects)
+* show your ProVo projects on your own website (you only need to copy/paste one line of HTML-code)
 * consume project info with the API: ProVo serves JSON, XML and implements the [projecta microformat](http://microformats.org/wiki/projecta)
 
 Demo
@@ -48,7 +49,7 @@ Install and Run
 ---
 
 * Get the source: `git clone git://github.com/MichaelWhi/provo.git`
-* OPTIONAL: install ruby 1.9.3: `rvm install 1.9.3 && rvm use 1.9.3` (get [get rvm](https://rvm.io))
+* ONLY if you don't have a current ruby: install ruby 1.9.3, e. g. with RVM: `rvm install 1.9.3 && rvm use 1.9.3` ([get RVM here](https://rvm.io))
 * install bundler: `gem install bundler --pre`
 * go in to the directory: `cd provo`
 * run `bundle install` to install dependencies (rails and other stuff)
