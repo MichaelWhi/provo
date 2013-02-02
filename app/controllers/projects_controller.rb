@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :require_user, except: [:embed, :qr, :index, :show, :tags]
+  before_filter :require_user, except: [:embed, :qr, :index, :show, :tags, :tag]
   include ProjectsHelper
   
   def index
