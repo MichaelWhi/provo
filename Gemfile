@@ -19,7 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   
-  gem "font-awesome-rails"
+  gem "font-awesome-sass-rails", git: "git://github.com/littlebtc/font-awesome-sass-rails.git"
 end
 
 group :development do
