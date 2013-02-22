@@ -42,7 +42,7 @@ The master branch runs at [provo.herokuapp.com](http://provo.herokuapp.com).
 
 You might experience a delay for the first request. 
 
-Unfortunately, neither the icons nor the file upload currently work on heroku...
+Unfortunately, the file upload currently doesn't work on heroku...
 So you might wanna try it quickly localy to see it in real action. :-)
 
 Install and Run 
