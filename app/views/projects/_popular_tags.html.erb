@@ -4,5 +4,5 @@
 		<% end %>
 		<%= link_to "✱ all tags", projects_path, class: (params[:tag].blank? ? "active_tag" : "") %>
 		</p>
-		<p><%= link_to "Show all tags", tags_project_path if project_tags_count > 15 %></p>
+		<p><%= link_to "Show all tags", tags_projects_path if project_tags_count > 15 %></p>
 </div>
