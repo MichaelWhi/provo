@@ -17,7 +17,7 @@ Provo::Application.routes.draw do
       get 'starred'
       get 'my'
       get 'tags'
-      get 'tag'
+      get 'tag/:tag', action: 'tag', as: 'tag'
     end
   end
   
