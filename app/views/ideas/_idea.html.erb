@@ -1,0 +1,4 @@
+<li>
+	<%= link_to idea.title, idea %>
+	<small><%= truncate(strip_tags(idea.rendered_description), length: 60) %></small>
+</li>

@@ -1,4 +1,4 @@
-module ProjectsHelper
+module TagsHelper
   def tag_cloud(tags, classes)
     # tags = tags.load if tags.respond_to?(:load)
 
@@ -13,10 +13,22 @@ module ProjectsHelper
   end
   
   def project_tags(db_limit = 30)
-    Project.all_tag_counts.order("tags_count desc").limit(db_limit)
+    all_tags(Project, db_limit)
   end
   
   def project_tags_count
-    ActsAsTaggableOn::Tag.count
+    Project.tag_counts_on(:tags).count
+  end
+  
+  def idea_tags(db_limit = 30)
+    all_tags(Idea, db_limit)
+  end
+  
+  def idea_tags_count
+    Idea.tag_counts_on(:tags).count
+  end
+  
+  def all_tags(klass, db_limit)
+    klass.all_tag_counts.order("tags_count desc").limit(db_limit) 
   end
 end

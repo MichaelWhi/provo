@@ -1,0 +1,26 @@
+<%= semantic_form_for @idea do |f| %>
+  <%= f.inputs name: "Basic" do %>
+      <%= f.input :title %>
+      <%= f.input :description, input_html: {"data-preview" => "true", :placeholder => "Idea summary, problem and possible solutions, references, ..."} %>
+      <%= f.input :link, as: :url %>
+	  <%= f.input :tag_list, hint: "separated with commas (,)" %>
+    <% end %>
+  <%= f.actions do %>
+	<%= f.submit class: "btn", style: "padding:8px;" %>
+  <% end %>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+	$('#idea_tag_list').tagsInput({
+	   'height':'60px',
+	   'width':'100%',
+	   'interactive':true,
+	   'defaultText':'add a tag',
+	   'removeWithBackspace' : true,
+	   'maxChars' : 50,
+	   'placeholderColor' : '#00205B'
+	});
+  }
+  );
+</script>

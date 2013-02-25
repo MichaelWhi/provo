@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
   before_filter :require_user, except: [:embed, :qr, :index, :show, :tags, :tag]
-  include ProjectsHelper
+  include TagsHelper
   
   def index
     @projects = Project.all
-    @tags = project_tags(15)
+    @tags = project_tags(12)
     respond_to do |format| 
       format.html
       format.json {render json: @projects, only: [:id, :title]}
@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   end
   
   def tag
-    @tags = project_tags(15)
+    @tags = project_tags(12)
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])
       render "index"

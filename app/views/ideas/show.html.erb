@@ -1,2 +1,34 @@
-<h1>Ideas#show</h1>
-<p>Find me in app/views/ideas/show.html.erb</p>
+<div>
+	<h1><%= icon_tag(:lightbulb) %> 
+	<%= link_to @idea.title, @idea, class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @idea.user.name %></span> </small></h1>
+	<p id="context_links"><%= link_to icon_tag("thumbs-up"), vote_idea_path(@idea, kind: :like), class: "vote-link up", method: :post, remote: true %> <%= link_to icon_tag("thumbs-down"), vote_idea_path(@idea, kind: :dislike), class: "vote-link down", method: :post, remote: true %>  &nbsp;
+	<% if @idea.user == current_user %>
+	<%= link_to icon_tag(:pencil) + "Edit", edit_idea_path(@idea) %>
+	<% end %>
+	</p>
+	<section>
+		<p><%= link_to @idea.link, @idea.link, target: "_blank" %></p>
+	<div class="well summary">
+		<%= @idea.rendered_description.html_safe %>
+	</div>
+	</section>
+
+	<section class="meta">
+		<p><strong>Tags:</strong> 
+		<%= @idea.tag_list.map do |tag|
+			content_tag(:span, tag, class: "tag")
+		end.join(", ").html_safe %>
+		</p>
+		<p>This idea was submitted in <%= l @idea.created_at, format: "%B %Y" %>
+		</p>
+	</section>
+</div>
+
+<script>
+	$(document).ready(function(){
+		window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
+		$(".vote-link").bind("ajax:success", function(){
+			window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
+		});
+	});
+</script>

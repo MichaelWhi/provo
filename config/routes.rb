@@ -21,7 +21,18 @@ Provo::Application.routes.draw do
     end
   end
   
-  resources :ideas
+  resources :ideas do
+    member do
+      post 'vote'
+      get 'user_vote_status'
+    end
+    collection do 
+      get 'liked'
+      get 'my'
+      get 'tags'
+      get 'tag/:tag', action: 'tag', as: 'tag'
+    end
+  end
   
   get '/pages/:id' => 'high_voltage/pages#show'
   

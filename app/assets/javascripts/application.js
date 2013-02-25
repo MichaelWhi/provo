@@ -17,5 +17,7 @@
 //= require ./libs/JQuery-File-Upload
 //= require ./libs/jquery.reveal
 //= require ./libs/jquery.tagsinput
+//= require ./libs/app_construct
 //= require md_preview
 //= require jquery.elastic
+//= require ideas

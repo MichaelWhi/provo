@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130129194641) do
+ActiveRecord::Schema.define(version: 20130225213708) do
 
   create_table "attachments", force: true do |t|
     t.string   "name"
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(version: 20130129194641) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "title",            limit: 50, default: ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.string   "role",                        default: "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "ideas", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "workflow_state"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "link"
+    t.text     "rendered_description"
   end
 
   create_table "projects", force: true do |t|
@@ -64,5 +90,21 @@ ActiveRecord::Schema.define(version: 20130129194641) do
     t.datetime "updated_at"
     t.text     "meta"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type"], name: "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type"], name: "index_votes_on_voter_id_and_voter_type"
 
 end

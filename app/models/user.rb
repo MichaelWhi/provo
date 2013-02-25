@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+  
   has_many :projects
+  has_many :ideas
   
   validates :name, :email, presence: true
   
@@ -8,12 +11,10 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   def starred
-    unless self.starred_projects.nil?
-      self.starred_projects.map do |pid|
-        Project.find(pid.to_i)
-      end
-    else
+    if self.starred_projects.nil?
       []
+    else
+      Project.where(id: self.starred_projects.map(&:to_i))
     end
   end
   

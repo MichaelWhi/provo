@@ -64,3 +64,7 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+gem 'workflow' # states for ideas
+gem 'acts_as_votable', git: 'git://github.com/MichaelWhi/acts_as_votable.git', branch: 'rails4'
+gem 'acts_as_commentable'
