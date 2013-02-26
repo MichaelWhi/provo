@@ -15,8 +15,6 @@ window.Provo.Ideas.refreshVote = (resource) ->
 			#$("#context_links a.down").attr("href", $("#context_links a.down").attr("href").replace("kind=dislike", "kind=undislike"))
 		#else
 		#	$("#context_links a.up").attr("href", $("#context_links a.up").attr("href").replace("kind=unlike", "kind=like"))
-		#	$("#context_links a.down").attr("href", $("#context_links a.down").attr("href").replace("kind=undislike", "kind=dislike"))
-			
-		$(this).addClass("active")
+		#	$("#context_links a.down").attr("href", $("#context_links a.down").attr("href").replace("kind=undislike", "kind=dislike"))			
 		return
 	return

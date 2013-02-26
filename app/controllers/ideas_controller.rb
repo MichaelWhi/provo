@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
   
   def index
     @ideas = Idea.all
-    @tags = project_tags(12)
+    @tags = idea_tags(12)
     respond_to do |format| 
       format.html
       format.json {render json: @ideas, only: [:id, :title]}
