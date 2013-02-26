@@ -23,6 +23,16 @@
 		</p>
 	</section>
 </div>
+	<hr noshade="noshade">
+	<section>
+		<%= form_tag comment_idea_path(@idea), method: :post, remote: true %>
+			<%= text_area_tag "comment[comment]", "", rows: 3, style: "width:80%", placeholder: t(".write_a_comment", default: "Write a comment"), required: "required" %>
+			<%= submit_tag "Post", class: "btn" %>
+		</form>
+		<div id="comments">
+			
+		</div>
+	</section>
 
 <script>
 	$(document).ready(function(){

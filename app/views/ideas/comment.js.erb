@@ -1,0 +1,6 @@
+$("#comment_comment").val("");
+$("#comments").empty();
+
+<% @idea.comments.each do |comment| %>
+	$("#comments").append("<p class='well' id='comment_<%= comment.id %>'><%= comment.comment %> <small>(<%= l comment.created_at, format: :short %>)</small></p>");
+<% end %>

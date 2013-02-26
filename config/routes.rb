@@ -25,6 +25,7 @@ Provo::Application.routes.draw do
     member do
       post 'vote'
       get 'user_vote_status'
+      post 'comment'
     end
     collection do 
       get 'liked'

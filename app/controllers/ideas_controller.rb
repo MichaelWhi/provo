@@ -104,6 +104,15 @@ class IdeasController < ApplicationController
     end
   end
   
+  def comment
+    find_idea
+    if !params[:comment][:comment].blank? && @idea.comments.create(comment: current_user.name + ": " + params[:comment][:comment])
+      # ok
+    else
+      head :unprocessable_entity
+    end
+  end
+  
   protected
   def find_idea
     @idea = Idea.find(params[:id])
