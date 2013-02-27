@@ -57,6 +57,7 @@ group :production do
 	gem 'pg'
 	gem 'rack-cache'
 	gem 'dalli'
+	gem 'newrelic_rpm'
 end
 
 # Deploy with Capistrano
