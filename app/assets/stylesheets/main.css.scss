@@ -434,11 +434,11 @@ nav a:hover {
         text-decoration: underline;
     }
 
-    a[href]:after {
+    .print-links a[href]:after {
         content: " (" attr(href) ")";
     }
 
-    abbr[title]:after {
+    .print-links abbr[title]:after {
         content: " (" attr(title) ")";
     }
 
