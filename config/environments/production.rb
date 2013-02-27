@@ -52,6 +52,8 @@ Provo::Application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  config.logger = Logger.new(STDOUT) # http://j.mp/Y193w3
+  config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
 
   # Use a different cache store in production.
   config.cache_store = :dalli_store
