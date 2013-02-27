@@ -1,50 +1,50 @@
 <div class="projecta">
 	<h1><% if current_user %>
-		<% unless current_user.starred?(@project.id) %>
-		  <%= link_to icon_tag("star-empty"), star_project_path(@project), method: :post, remote: true, id: "starLink", class: "no-print" %>
+		<% unless current_user.starred?(@obj.id) %>
+		  <%= link_to icon_tag("star-empty"), star_project_path(@obj), method: :post, remote: true, id: "starLink", class: "no-print" %>
 		<% else %>
-	      <%= link_to icon_tag(:star), unstar_project_path(@project), method: :post, remote: true, id: "starLink", class: "no-print" %>
+	      <%= link_to icon_tag(:star), unstar_project_path(@obj), method: :post, remote: true, id: "starLink", class: "no-print" %>
 		<% end %>
 	<% end %> 
-	<%= link_to @project.title, project_with_title_path(@project, title: @project.title), class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @project.contact %></span> </small></h1>
-	<% if @project.user == current_user %>
-	<p><%= link_to icon_tag(:pencil) + "Edit", edit_project_path(@project), class: "no-print" %></p>
+	<%= link_to @obj.title, project_with_title_path(@obj, title: @obj.title), class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @obj.contact %></span> </small></h1>
+	<% if @obj.user == current_user %>
+	<p><%= link_to icon_tag(:pencil) + "Edit", edit_project_path(@obj), class: "no-print" %></p>
 	<% end %>
 	<section>
-		<p><a href="#" data-reveal-id="qrModal" class="no-print"><%= icon_tag(:qrcode) %></a> <%= link_to @project.link, @project.link, target: "_blank" %></p>
+		<p><a href="#" data-reveal-id="qrModal" class="no-print"><%= icon_tag(:qrcode) %></a> <%= link_to @obj.link, @obj.link, target: "_blank" %></p>
 	<div class="well summary print-links">
-		<%= @project.rendered_description.html_safe %>
+		<%= @obj.rendered_description.html_safe %>
 	</div>
 	</section>
 	<section style="margin-bottom: 50px;" class="no-print">
-	<% if @project.attachments.any? %>
+	<% if @obj.attachments.any? %>
 	  <ul>
-		<%= render @project.attachments.order("created_at desc") %>
+		<%= render @obj.attachments.order("created_at desc") %>
 	  </ul>
 	<% end %>
-	<% if @project.user == current_user %>
-		<%= render template: "attachments/new", locals:{ attachment: @project.attachments.build } %>
+	<% if @obj.user == current_user %>
+		<%= render template: "attachments/new", locals:{ attachment: @obj.attachments.build } %>
 	<% end %>
 	</section>
 	
 	<section class="meta">
 		<p><strong>Tags:</strong> 
-		<%= @project.tag_list.map do |tag|
+		<%= @obj.tag_list.map do |tag|
 			content_tag(:span, tag, class: "tag")
 		end.join(", ").html_safe %>
 		</p>
-		<p>This project was started in <%= l @project.created_at, format: "%B %Y" %>
+		<p>This project was started in <%= l @obj.created_at, format: "%B %Y" %>
 		</p>
 		<p>
-			<%= tweet_this(@project) %>
+			<%= tweet_this(@obj) %>
 		</p>
 	</section>
 </div>
 
 
 	<div id="qrModal" class="reveal-modal">
-	     <p style="text-align:center;"><%= image_tag qr_project_path(@project), alt: "QR Code" %><br>
-		<small><%= project_url(@project) %></small>
+	     <p style="text-align:center;"><%= image_tag qr_project_path(@obj), alt: "QR Code" %><br>
+		<small><%= project_url(@obj) %></small>
 		</p>
 	     <a class="close-reveal-modal">&#215;</a>
 	</div>

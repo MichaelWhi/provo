@@ -1,4 +1,4 @@
-<%= semantic_form_for @idea do |f| %>
+<%= semantic_form_for @obj do |f| %>
   <%= f.inputs name: "Basic" do %>
       <%= f.input :title %>
       <%= f.input :description, input_html: {"data-preview" => "true", :placeholder => "Idea summary, problem and possible solutions, references, ..."} %>

@@ -1,3 +1,3 @@
 $("#starLink").html(
-	"<%= escape_javascript(link_to(icon_tag(:star), unstar_project_path(@project), method: :post, remote: true, id: "starLink")) %>"
+	"<%= escape_javascript(link_to(icon_tag(:star), unstar_project_path(@obj), method: :post, remote: true, id: "starLink")) %>"
 );

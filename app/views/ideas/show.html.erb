@@ -1,39 +1,39 @@
 <div>
 	<h1><%= icon_tag(:lightbulb) %> 
-	<%= link_to @idea.title, @idea, class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @idea.user.name %></span> </small></h1>
+	<%= link_to @obj.title, @obj, class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @obj.user.name %></span> </small></h1>
 
   <% if current_user %>
-	<p id="context_links"><%= link_to icon_tag("thumbs-up"), vote_idea_path(@idea, kind: :like), class: "vote-link up", method: :post, remote: true %> <%= link_to icon_tag("thumbs-down"), vote_idea_path(@idea, kind: :dislike), class: "vote-link down", method: :post, remote: true %>  &nbsp;
-	<% if @idea.user == current_user %>
-	<%= link_to icon_tag(:pencil) + "Edit", edit_idea_path(@idea) %>
+	<p id="context_links"><%= link_to icon_tag("thumbs-up"), vote_idea_path(@obj, kind: :like), class: "vote-link up", method: :post, remote: true %> <%= link_to icon_tag("thumbs-down"), vote_idea_path(@obj, kind: :dislike), class: "vote-link down", method: :post, remote: true %>  &nbsp;
+	<% if @obj.user == current_user %>
+	<%= link_to icon_tag(:pencil) + "Edit", edit_idea_path(@obj) %>
 	<% end %>
 	</p>
   <% end %>
 
 	<section>
-		<p><%= link_to @idea.link, @idea.link, target: "_blank" %></p>
+		<p><%= link_to @obj.link, @obj.link, target: "_blank" %></p>
 	<div class="well summary print-links">
-		<%= @idea.rendered_description.html_safe %>
+		<%= @obj.rendered_description.html_safe %>
 	</div>
 	</section>
 
 	<section class="meta">
 		<p><strong>Tags:</strong> 
-		<%= @idea.tag_list.map do |tag|
+		<%= @obj.tag_list.map do |tag|
 			content_tag(:span, tag, class: "tag")
 		end.join(", ").html_safe %>
 		</p>
-		<p>This idea was submitted in <%= l @idea.created_at, format: "%B %Y" %>
+		<p>This idea was submitted in <%= l @obj.created_at, format: "%B %Y" %>
 		</p>
 		<p>
-			<%= tweet_this(@idea) %>
+			<%= tweet_this(@obj) %>
 		</p>
 	</section>
 </div>
 	<hr noshade="noshade">
 	<section>
 		<% if current_user %>
-			<%= form_tag comment_idea_path(@idea), method: :post, remote: true %>
+			<%= form_tag comment_idea_path(@obj), method: :post, remote: true %>
 				<%= text_area_tag "comment[comment]", "", rows: 2, style: "width:80%; margin-right: 20px;", placeholder: t(".write_a_comment", default: "Write a comment"), required: "required" %>
 			<%= submit_tag "Post", class: "btn" %>
 			</form>
@@ -46,9 +46,9 @@
 <% if current_user %>
   <script>
 	$(document).ready(function(){
-		window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
+		window.Provo.Ideas.refreshVote("<%= idea_url(@obj) %>");
 		$(".vote-link").bind("ajax:success", function(){
-			window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
+			window.Provo.Ideas.refreshVote("<%= idea_url(@obj) %>");
 		});
 		$("#comment_comment").elastic();
 	});
