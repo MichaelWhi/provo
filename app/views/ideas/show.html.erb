@@ -1,11 +1,15 @@
 <div>
 	<h1><%= icon_tag(:lightbulb) %> 
 	<%= link_to @idea.title, @idea, class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @idea.user.name %></span> </small></h1>
+
+  <% if current_user %>
 	<p id="context_links"><%= link_to icon_tag("thumbs-up"), vote_idea_path(@idea, kind: :like), class: "vote-link up", method: :post, remote: true %> <%= link_to icon_tag("thumbs-down"), vote_idea_path(@idea, kind: :dislike), class: "vote-link down", method: :post, remote: true %>  &nbsp;
 	<% if @idea.user == current_user %>
 	<%= link_to icon_tag(:pencil) + "Edit", edit_idea_path(@idea) %>
 	<% end %>
 	</p>
+  <% end %>
+
 	<section>
 		<p><%= link_to @idea.link, @idea.link, target: "_blank" %></p>
 	<div class="well summary">
@@ -25,20 +29,25 @@
 </div>
 	<hr noshade="noshade">
 	<section>
-		<%= form_tag comment_idea_path(@idea), method: :post, remote: true %>
-			<%= text_area_tag "comment[comment]", "", rows: 3, style: "width:80%", placeholder: t(".write_a_comment", default: "Write a comment"), required: "required" %>
+		<% if current_user %>
+			<%= form_tag comment_idea_path(@idea), method: :post, remote: true %>
+				<%= text_area_tag "comment[comment]", "", rows: 2, style: "width:80%; margin-right: 20px;", placeholder: t(".write_a_comment", default: "Write a comment"), required: "required" %>
 			<%= submit_tag "Post", class: "btn" %>
-		</form>
+			</form>
+		<% end %>
 		<div id="comments">
 			
 		</div>
 	</section>
 
-<script>
+<% if current_user %>
+  <script>
 	$(document).ready(function(){
 		window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
 		$(".vote-link").bind("ajax:success", function(){
 			window.Provo.Ideas.refreshVote("<%= idea_url(@idea) %>");
 		});
+		$("#comment_comment").elastic();
 	});
-</script>
+  </script>
+<% end %>
