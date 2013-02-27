@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/MichaelWhi/tweet-button.git
-  revision: 89589a450bea79c21ccf2a4c2648785f75f9e02c
+  revision: b49e0b416a26ff57d16e9b9681f446c09ec38fc3
   specs:
     tweet-button (0.2.0)
 
