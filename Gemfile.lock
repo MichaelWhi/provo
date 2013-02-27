@@ -187,7 +187,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.3)
-    newrelic_rpm (3.5.3.25)
+    newrelic_rpm (3.5.7.59)
     nokogiri (1.5.6)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -257,7 +257,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails (>= 3.0.1)
   md_preview
-  newrelic_rpm
+  newrelic_rpm (>= 3.5.5.38)
   pg
   pry
   rack-cache
