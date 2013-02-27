@@ -1,5 +1,5 @@
 <h1>Tags</h1>
-<div class="well">
+<div class="well center">
 <% tag_cloud(@cloud_tags, %w(tc1 tc2 tc3 tc4)) do |tag, css_class| %>
   <%= link_to tag.name, tag_projects_path(tag: tag.name), class: css_class + " badge" %>
 <% end %>
