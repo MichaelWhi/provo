@@ -1,5 +1,6 @@
 ProVo
 ====
+[![Code Climate](https://codeclimate.com/github/MichaelWhi/provo.png)](https://codeclimate.com/github/MichaelWhi/provo)
 
 ProVo is a web application to showcase the projects at your organization / group.
 
