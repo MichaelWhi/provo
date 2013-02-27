@@ -5,7 +5,7 @@
 </p>
 
 <div class="well">
-  <h2><%= t ".some_projects" %> <small>(<%= Project.count %>)</small></h2>
+  <h2><%= t ".some_projects" %> <small>(<%= Project.count %> total)</small></h2>
   <ul>
 	<%= render partial: "projects/project", collection: Project.all.limit(3), as: :project %>
   </ul>
