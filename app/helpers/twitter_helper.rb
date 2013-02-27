@@ -11,6 +11,6 @@ module TwitterHelper
     else
       url = root_url
     end
-    custom_tweet_button("Tweet!", {text: "Check out #{truncate(obj.title, length: 40)} (#{url}) at ProVo! #upb"}.merge(more_params), {class: 'no-print', data: {popup: true}})
+    custom_tweet_button("Tweet!", {text: "Check out #{truncate(obj.title, length: 60)} at ProVo! #upb"}.merge(more_params), {class: 'no-print', data: {popup: true}})
   end
 end
