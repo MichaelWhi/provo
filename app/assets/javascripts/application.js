@@ -21,3 +21,4 @@
 //= require md_preview
 //= require jquery.elastic
 //= require ideas
+//= require helper

@@ -35,6 +35,9 @@
 		</p>
 		<p>This project was started in <%= l @project.created_at, format: "%B %Y" %>
 		</p>
+		<p>
+			<%= tweet_this(@project) %>
+		</p>
 	</section>
 </div>
 

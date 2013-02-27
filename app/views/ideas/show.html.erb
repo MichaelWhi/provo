@@ -25,6 +25,9 @@
 		</p>
 		<p>This idea was submitted in <%= l @idea.created_at, format: "%B %Y" %>
 		</p>
+		<p>
+			<%= tweet_this(@idea) %>
+		</p>
 	</section>
 </div>
 	<hr noshade="noshade">

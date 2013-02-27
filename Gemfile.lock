@@ -7,6 +7,12 @@ GIT
       rails (>= 3.2.11)
 
 GIT
+  remote: git://github.com/MichaelWhi/tweet-button.git
+  revision: 89589a450bea79c21ccf2a4c2648785f75f9e02c
+  specs:
+    tweet-button (0.2.0)
+
+GIT
   remote: git://github.com/justinfrench/formtastic.git
   revision: c5e311ab043152381c5190d5d42836a2cf07defa
   specs:
@@ -259,6 +265,7 @@ DEPENDENCIES
   sprockets-rails!
   sqlite3
   turbolinks
+  tweet-button!
   uglifier (>= 1.0.3)
   unicorn
   workflow
