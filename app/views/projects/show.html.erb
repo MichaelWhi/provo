@@ -1,3 +1,5 @@
+<% content_for(:title, @obj.title) %>
+
 <div class="projecta">
 	<h1><% if current_user %>
 		<% unless current_user.starred?(@obj.id) %>
@@ -30,8 +32,8 @@
 	<section class="meta">
 		<p><strong>Tags:</strong> 
 		<%= @obj.tag_list.map do |tag|
-			content_tag(:span, tag, class: "tag")
-		end.join(", ").html_safe %>
+			link_to tag, tag_projects_path(tag: tag), class: "tag badge"
+		end.join(" ").html_safe %>
 		</p>
 		<p>This project was started in <%= l @obj.created_at, format: "%B %Y" %>
 		</p>

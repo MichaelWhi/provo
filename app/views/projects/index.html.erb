@@ -1,3 +1,5 @@
+<% content_for(:title, "Projects" + (params[:tag] ? " (" + params[:tag] + ")" : "")) %>
+
 <h1><%= icon_tag(:reorder) %> Projects</h1>
 <%= render "popular_tags" %>
 <small>
