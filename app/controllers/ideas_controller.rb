@@ -1,6 +1,6 @@
 class IdeasController < ContentController
   include TagsHelper
-  before_filter :require_user, except: [:index, :show, :tags, :tag]
+  before_filter :require_user, except: [:index, :show, :tags, :tag, :comment]
 
   def edit
     find_model
@@ -35,7 +35,7 @@ class IdeasController < ContentController
   
   def comment
     find_model
-    if !params[:comment][:comment].blank? && @obj.comments.create(comment: current_user.name + ": " + params[:comment][:comment])
+    if !params[:comment][:comment].blank? && @obj.comments.create(user_id: user_or_guest.id, comment: params[:comment][:comment])
       # ok
     else
       head :unprocessable_entity

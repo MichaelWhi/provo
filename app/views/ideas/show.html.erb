@@ -34,14 +34,19 @@
 </div>
 	<hr noshade="noshade">
 	<section>
-		<% if current_user %>
+		<div>
 			<%= form_tag comment_idea_path(@obj), method: :post, remote: true %>
 				<%= text_area_tag "comment[comment]", "", rows: 2, style: "width:80%; margin-right: 20px;", placeholder: t(".write_a_comment", default: "Write a comment"), required: "required" %>
 			<%= submit_tag "Post", class: "btn" %>
 			</form>
-		<% end %>
+			<% unless current_user %>
+				<p><small>You are not logged in. Please <%= link_to "log in", new_user_path %>, or if you don't have an account, sign the comment with your name and any necessary contact info.</small></p>
+			<% end %>
+		</div>
 		<div id="comments">
-			
+			<% @obj.comments.order("created_at desc").each do |comment| %>
+				<p class="well" id="comment_<%= comment.id %>"><%= comment.comment %> <small>(by <strong><%= comment.user_id && comment.user_id != 0 ? comment.user.name : "Guest" %></strong> <%= l comment.created_at, format: :short %>)</small></p>
+			<% end %>
 		</div>
 	</section>
 
