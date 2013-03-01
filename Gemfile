@@ -70,3 +70,4 @@ gem 'workflow' # states for ideas
 gem 'acts_as_votable', git: 'git://github.com/MichaelWhi/acts_as_votable.git', branch: 'rails4'
 gem 'acts_as_commentable'
 gem 'tweet-button', git: 'git://github.com/MichaelWhi/tweet-button.git'
+gem 'emoji4rails'

@@ -44,9 +44,7 @@
 			<% end %>
 		</div>
 		<div id="comments">
-			<% @obj.comments.order("created_at desc").each do |comment| %>
-				<p class="well" id="comment_<%= comment.id %>"><%= comment.comment %> <small>(by <strong><%= comment.user_id && comment.user_id != 0 ? comment.user.name : "Guest" %></strong> <%= l comment.created_at, format: :short %>)</small></p>
-			<% end %>
+			<%= render @obj.comments.order("created_at desc"), partial: "comments/comment" %>
 		</div>
 	</section>
 

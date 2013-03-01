@@ -2,5 +2,5 @@ $("#comment_comment").val("");
 $("#comments").empty();
 
 <% @obj.comments.order("created_at desc").each do |comment| %>
-	$("#comments").append("<p class='well' id='comment_<%= comment.id %>'><%= comment.comment %> <small>(by <strong><%= comment.user_id && comment.user_id != 0 ? comment.user.name : "Guest" %></strong> <%= l comment.created_at, format: :short %>)</small></p>");
+	$("#comments").append("<p class='well' id='comment_<%= comment.id %>'><%= escape_javascript(raw(render_emoji(comment.comment))) %> <small>(by <strong><%= comment.user_id && comment.user_id != 0 ? comment.user.name : "Guest" %></strong> <%= l comment.created_at, format: :short %>)</small></p>");
 <% end %>

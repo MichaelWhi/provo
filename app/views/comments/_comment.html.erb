@@ -1,0 +1,5 @@
+<p class="well" id="comment_<%= comment.id %>">
+<%= raw render_emoji(comment.comment) %> 
+<br>
+<small>(by <strong><%= comment.user_id && comment.user_id != 0 ? comment.user.name : "Guest" %></strong> <%= l comment.created_at, format: :short %>)</small>
+</p>
