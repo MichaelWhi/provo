@@ -34,7 +34,7 @@
 </div>
 	<hr noshade="noshade">
 	<section>
-		<div>
+		<div class="no-print">
 			<%= form_tag comment_idea_path(@obj), method: :post, remote: true %>
 				<%= text_area_tag "comment[comment]", "", rows: 2, style: "width:80%; margin-right: 20px;", placeholder: t(".write_a_comment", default: "Write a comment (you can use Emojis)"), required: "required" %>
 			<%= submit_tag "Post", class: "btn" %>
