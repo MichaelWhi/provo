@@ -40,7 +40,7 @@
 			<%= submit_tag "Post", class: "btn" %>
 			</form>
 			<% unless current_user %>
-				<p><small>You are not logged in. Please <%= link_to "log in", new_user_path %>, or if you don't have an account, sign the comment with your name and any necessary contact info.</small></p>
+				<p><small>You are not logged in. Please <%= link_to "log in", new_user_session_path %>, or if you don't have an account, sign the comment with your name and any necessary contact info.</small></p>
 			<% end %>
 		</div>
 		<div id="comments">
