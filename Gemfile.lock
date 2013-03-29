@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MichaelWhi/acts_as_votable.git
-  revision: 9d109b3736f258d39a8d9ccd431610a3c98d13bf
+  revision: 1caaaa2684b45b9e5c62207902f35e17593ef26d
   branch: rails4
   specs:
     acts_as_votable (0.5.0)
@@ -14,14 +14,14 @@ GIT
 
 GIT
   remote: git://github.com/justinfrench/formtastic.git
-  revision: c5e311ab043152381c5190d5d42836a2cf07defa
+  revision: dc16ffc3dd5f774d8c7ec1b63c560d2cb4041552
   specs:
     formtastic (2.2.1)
       actionpack (>= 3.0)
 
 GIT
   remote: git://github.com/littlebtc/font-awesome-sass-rails.git
-  revision: e1bd24a6f99f45eccb6335506a55070647d67c90
+  revision: ef72d282529af501067963b0a2a89311de929b0e
   specs:
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
@@ -29,27 +29,27 @@ GIT
 
 GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
-  revision: 5937f3e7102f9be461ce2dccaef0e4d14e92cd35
+  revision: c00788c2b7e01170f63bd9651f7efd8deb4bd4b0
   specs:
     activerecord-deprecated_finders (0.0.3)
 
 GIT
   remote: git://github.com/rails/arel.git
-  revision: 80f11e342d00a2177dd8e5684914855b87771c5b
+  revision: 933ea218116645eafaf3b7ea5695520db0f9d9ba
   specs:
-    arel (3.0.2.20120819075748)
+    arel (4.0.0.beta2.20130314230643)
 
 GIT
   remote: git://github.com/rails/coffee-rails.git
-  revision: 052634e6d02d4800d7b021201cc8d5829775b3cd
+  revision: 948fef30464235e7588e34faa513b448a00c0e6b
   specs:
-    coffee-rails (4.0.0.beta)
+    coffee-rails (4.0.0.beta1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: d10056087c01baa6d97059ae01834099372fe681
+  revision: ecfdc842a58816540e7c96a913f95a0d94be7ca7
   specs:
     actionmailer (4.0.0.beta1)
       actionpack (= 4.0.0.beta1)
@@ -67,9 +67,9 @@ GIT
       activemodel (= 4.0.0.beta1)
       activerecord-deprecated_finders (~> 0.0.3)
       activesupport (= 4.0.0.beta1)
-      arel (~> 3.0.2)
+      arel (~> 4.0.0.beta2)
     activesupport (4.0.0.beta1)
-      i18n (~> 0.6)
+      i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
@@ -79,7 +79,7 @@ GIT
       actionpack (= 4.0.0.beta1)
       activerecord (= 4.0.0.beta1)
       activesupport (= 4.0.0.beta1)
-      bundler (>= 1.2.2, < 2.0)
+      bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0.beta1)
       sprockets-rails (~> 2.0.0.rc3)
     railties (4.0.0.beta1)
@@ -91,9 +91,9 @@ GIT
 
 GIT
   remote: git://github.com/rails/sass-rails.git
-  revision: ae8138a89cac397c0df903dd533e2862902ce8f5
+  revision: d435679b0fe528b954a9abd0059f975d94707574
   specs:
-    sass-rails (4.0.0.beta)
+    sass-rails (4.0.0.beta1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
@@ -101,7 +101,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/sprockets-rails.git
-  revision: f11538f5bf3fce6a77943cb4faec2d80285ef488
+  revision: afce1e65f7c6df4ae96522b26e755915d238ff80
   specs:
     sprockets-rails (2.0.0.rc3)
       actionpack (>= 3.0)
@@ -110,9 +110,9 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/high_voltage.git
-  revision: 7560af01a982e7f06f913bfa68b32a85c0b3c381
+  revision: 8204c7435c5521239fb86983adea4053caee5190
   specs:
-    high_voltage (1.2.1)
+    high_voltage (1.2.2)
 
 GIT
   remote: git://github.com/tvdeyen/acts-as-taggable-on.git
@@ -130,20 +130,22 @@ GEM
     authlogic (3.2.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-    better_errors (0.3.2)
+    better_errors (0.7.2)
       coderay (>= 1.0.0)
-      erubis (>= 2.7.0)
-    binding_of_caller (0.6.8)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.1.4)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    coderay (1.0.7)
+    coderay (1.0.9)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
-    dalli (2.0.5)
+    coffee-script-source (1.6.2)
+    dalli (2.6.2)
+    debug_inspector (0.0.2)
     emoji4rails (0.0.2)
     erubis (2.7.0)
     excon (0.13.4)
@@ -161,15 +163,15 @@ GEM
       ruby-hmac
     formatador (0.2.4)
     hike (1.2.1)
-    i18n (0.6.1)
+    i18n (0.6.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
-    jquery-rails (2.1.4)
+    jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-turbolinks (0.2.1)
       rails (>= 3.1.0)
-    jquery-ui-rails (3.0.1)
+    jquery-ui-rails (4.0.2)
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.7)
@@ -178,24 +180,24 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    md_preview (1.0.0)
+    md_preview (1.0.1)
       rails (>= 3.1.0)
       redcarpet (>= 2.0.0)
-    method_source (0.7.1)
+    method_source (0.8.1)
     mime-types (1.21)
-    minitest (4.6.1)
-    multi_json (1.6.1)
+    minitest (4.7.0)
+    multi_json (1.7.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
-    net-ssh (2.6.3)
-    newrelic_rpm (3.5.7.59)
-    nokogiri (1.5.6)
+    net-ssh (2.6.6)
+    newrelic_rpm (3.6.0.78)
+    nokogiri (1.5.9)
     pg (0.14.1)
     polyglot (0.3.3)
-    pry (0.9.9.6)
+    pry (0.9.12)
       coderay (~> 1.0.5)
-      method_source (~> 0.7.1)
-      slop (>= 2.4.4, < 3)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -207,9 +209,9 @@ GEM
       json (~> 1.4)
     redcarpet (2.2.2)
     ruby-hmac (0.4.0)
-    sass (3.2.5)
-    slop (2.4.4)
-    sprockets (2.8.2)
+    sass (3.2.7)
+    slop (3.4.4)
+    sprockets (2.9.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -218,21 +220,21 @@ GEM
     thor (0.17.0)
     thread_safe (0.1.0)
       atomic
-    tilt (1.3.3)
+    tilt (1.3.6)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
     turbolinks (1.0.0)
       coffee-rails
-    tzinfo (0.3.35)
+    tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.5.0)
+    unicorn (4.6.2)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    workflow (0.8.7)
+    workflow (1.0.0)
 
 PLATFORMS
   ruby
