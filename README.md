@@ -50,7 +50,7 @@ Install and Run
 ---
 
 * Get the source: `git clone git://github.com/MichaelWhi/provo.git`
-* ONLY if you don't have a current ruby: install ruby 1.9.3, e. g. with RVM: `rvm install 1.9.3 && rvm use 1.9.3` ([get RVM here](https://rvm.io))
+* ONLY if you don't have a current ruby: install ruby 2.0.0, e. g. with RVM: `rvm install 2.0.0 && rvm use 2.0.0` ([get RVM here](https://rvm.io))
 * install bundler: `gem install bundler --pre`
 * go in to the directory: `cd provo`
 * run `bundle install` to install dependencies (rails and other stuff)
