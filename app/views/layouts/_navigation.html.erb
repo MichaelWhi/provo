@@ -1,13 +1,13 @@
 <nav>
   <ul>
-    <li> <%= link_to icon_tag(:reorder), projects_path %></li>
-    <li><%= link_to icon_tag(:lightbulb), ideas_path %></li>
-    <li><%= link_to icon_tag(:cloud), offered_services_path %></li>
+    <li> <%= link_to icon_tag(:reorder) + " Projects", projects_path, title: "Project overview" %></li>
+    <li><%= link_to icon_tag(:lightbulb) + " Ideas", ideas_path, title: "Ideas and proposals for improvement" %></li>
+    <li><%= link_to icon_tag(:cloud) + " Services", offered_services_path, title: "Offered IT services" %></li>
     <% if current_user %>
-    <li><%= link_to icon_tag(:star), starred_projects_path %></li>
-    <li><%= link_to icon_tag(:off), user_session_path, method: :delete %></li>
+    <li><%= link_to icon_tag(:star), starred_projects_path, title: "my starred projects" %></li>
+    <li><%= link_to icon_tag(:off), user_session_path, method: :delete, title: "Logout" %></li>
     <% else %>
-    <li><%= link_to icon_tag(:user) + "Login", new_user_session_path %></li>
+    <li><%= link_to icon_tag(:user), new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>

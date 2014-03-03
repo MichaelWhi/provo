@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   validates :name, :email, presence: true
   
-  store :meta, accessors: [ :starred_projects ]
+  store :meta, accessors: [ :starred_projects, :orga_unit ]
   
   acts_as_authentic
   

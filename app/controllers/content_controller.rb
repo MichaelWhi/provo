@@ -68,7 +68,10 @@ class ContentController < ApplicationController
   
   def new
     @obj = model_klaas.new
-    @obj.contact = current_user.name if @obj.respond_to?("contact=")
+    if @obj.respond_to?("contact=")
+      @obj.contact = current_user.name
+      @obj.contact = "#{@obj.contact} (#{current_user.orga_unit})" if current_user.orga_unit
+    end
   end
 
   def edit

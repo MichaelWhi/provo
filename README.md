@@ -50,11 +50,11 @@ Install and Run
 ---
 
 * Get the source: `git clone git://github.com/MichaelWhi/provo.git`
-* ONLY if you don't have a current ruby: install ruby 1.9.3, e. g. with RVM: `rvm install 1.9.3 && rvm use 1.9.3` ([get RVM here](https://rvm.io))
+* ONLY if you don't have a current ruby: install ruby 2.1.0, e. g. with RVM: `rvm install 2.1.0 && rvm use 2.1.0` ([get RVM here](https://rvm.io))
 * install bundler: `gem install bundler --pre`
 * go in to the directory: `cd provo`
 * run `bundle install` to install dependencies (rails and other stuff)
-* run `bundle exec rake db:migrate` to setup the local sqlite database
+* run `bin/rake db:migrate` to setup the local sqlite database
 * run `bundle exec rails s` and surf to [localhost:3000](http://localhost:3000/) – exit the server with CTRL+C (CMD+.)
 * :-)
 
@@ -72,6 +72,6 @@ I had the idea very late and wasn't able to figure out that "ProVo" actually is 
 
 Copyright
 ---
-(c) 2013 Michael Whittaker
+(c) 2013-14 Michael Whittaker
 
 (Please note that the use of the logo of the University of Paderborn is only for demo purpose; the logo is copyrighted.)
