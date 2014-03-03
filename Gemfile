@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.0'
 
-gem 'rails',     github: 'rails/rails'
-gem 'arel',      github: 'rails/arel'
-gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+gem 'rails',     '>= 4.0.3'
+gem 'arel' #,      github: 'rails/arel'
+# gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
 
 gem 'sqlite3', group: :development
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sprockets-rails', github: 'rails/sprockets-rails'
-  gem 'sass-rails',   github: 'rails/sass-rails'
-  gem 'coffee-rails', github: 'rails/coffee-rails'
+  gem 'sprockets-rails' #, github: 'rails/sprockets-rails'
+  gem 'sass-rails' #,   github: 'rails/sass-rails'
+  gem 'coffee-rails' #, github: 'rails/coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
@@ -26,6 +26,7 @@ group :development do
   gem "pry"
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'spring'
 end
 
 gem 'jquery-rails'
@@ -38,6 +39,7 @@ gem 'md_preview'
 gem "carrierwave"
 gem "high_voltage", git: "git://github.com/thoughtbot/high_voltage.git"
 gem "authlogic"
+gem "scrypt"
 
 gem "acts-as-taggable-on", git: "git://github.com/tvdeyen/acts-as-taggable-on.git", branch: "rails4"
 
@@ -57,6 +59,7 @@ group :production do
 	gem 'pg'
 	gem 'rack-cache'
 	gem 'dalli'
+	gem 'memcachier'
 	gem 'newrelic_rpm', '>= 3.5.5.38'
 end
 

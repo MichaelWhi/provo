@@ -1,0 +1,8 @@
+<div id="tag_link_list" class="well"><p><strong>Popular <%= link_to "tags", tags_offered_services_path %>: </strong> &nbsp;&nbsp;
+		<% @tags.each do |tag| %>
+			<%= link_to tag.name, tags_offered_services_path(tag: tag.name), class: (params[:tag] == tag.name ? "active_tag" : "") %> &nbsp;&nbsp; 
+		<% end %>
+		<%= link_to "✱ all tags", offered_services_path, class: (params[:tag].blank? ? "active_tag" : "") %>
+		</p>
+		<p><%= link_to "Show more tags", tags_offered_services_path if offered_service_tags_count > 15 %></p>
+</div>

@@ -21,6 +21,14 @@ Provo::Application.routes.draw do
     end
   end
   
+  resources :offered_services do
+    collection do 
+      get 'my'
+      get 'tags'
+      get 'tag/:tag', action: 'tag', as: 'tag'
+    end
+  end
+  
   resources :ideas do
     member do
       post 'vote'

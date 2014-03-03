@@ -1,0 +1,27 @@
+<% content_for(:title, @obj.title) %>
+
+<div class="projecta">
+	<h1>
+	<%= link_to @obj.title, @obj, class: "fn" %> <small><%= icon_tag(:user) %> <span class="vcard fn"><%= @obj.contact %></span> </small></h1>
+	<% if @obj.user == current_user %>
+	<p><%= link_to icon_tag(:pencil) + "Edit", edit_offered_service_path(@obj), class: "no-print" %></p>
+	<% end %>
+	<section>
+	<div class="well summary print-links">
+		<%= @obj.rendered_description.html_safe %>
+	</div>
+	</section>
+	
+	<section class="meta">
+		<p><strong>Tags:</strong> 
+		<%= @obj.tag_list.map do |tag|
+			link_to tag, tag_projects_path(tag: tag), class: "tag badge"
+		end.join(" ").html_safe %>
+		</p>
+		<p>This service is offered since <%= l @obj.created_at, format: "%B %Y" %>
+		</p>
+		<p class="no-print">
+			<%= tweet_this(@obj) %> | <%= save_as_pdf_link %>
+		</p>
+	</section>
+</div>

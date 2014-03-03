@@ -28,6 +28,14 @@ module TagsHelper
     Idea.tag_counts_on(:tags).count
   end
   
+  def offered_service_tags_count
+    OfferedService.tag_counts_on(:tags).count
+  end
+  
+  def offered_services_tags(db_limit = 30)
+    all_tags(OfferedService, db_limit)
+  end
+  
   def all_tags(klass, db_limit)
     klass.all_tag_counts.order("tags_count desc").limit(db_limit) 
   end

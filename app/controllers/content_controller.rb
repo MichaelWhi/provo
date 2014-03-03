@@ -18,7 +18,13 @@ class ContentController < ApplicationController
   end
   
   def my
-    @objs = current_user.projects
+    if model_klaas == Project
+      @objs = current_user.projects
+    elsif
+      @objs = current_user.offered_services
+    else
+      @objs = []
+    end
     @tags = @objs.flat_map(&:tags).uniq # what about @objs.tag_counts_on(:tags) ?
     render "index"
   end

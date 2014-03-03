@@ -1,0 +1,27 @@
+<%= semantic_form_for @obj do |f| %>
+  <%= f.inputs name: "Basic" do %>
+      <%= f.input :title %>
+      <%= f.input :description, input_html: {"data-preview" => "true"} %>
+      <%= f.input :contact %>
+      <%= f.input :link, as: :url %>
+	  <%= f.input :tag_list, hint: "separated with commas (,)" %>
+    <% end %>
+  <%= f.actions do %>
+	<%= f.submit class: "btn", style: "padding:8px;" %>
+  <% end %>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+	$('#project_tag_list').tagsInput({
+	   'height':'60px',
+	   'width':'100%',
+	   'interactive':true,
+	   'defaultText':'add a tag',
+	   'removeWithBackspace' : true,
+	   'maxChars' : 50,
+	   'placeholderColor' : '#00205B'
+	});
+  }
+  );
+</script>

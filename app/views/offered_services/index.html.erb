@@ -1,0 +1,19 @@
+<% content_for(:title, "Offered Services" + (params[:tag] ? " (" + params[:tag] + ")" : "")) %>
+
+<h1><%= icon_tag(:reorder) %> Services</h1>
+<%= render "popular_tags" %>
+<small>
+  <% if params[:action] == "my" %>
+	(showing your projects | <%= link_to "click here show all", offered_services_path %>)
+  <% elsif current_user %> 
+	(<%= link_to "click here to show your service offers", my_offered_services_path %>)</small>
+  <% end %> 
+<section>
+<ul>
+	<%= render @objs %>
+</ul>
+</section>
+<% if current_user %>
+	<%= link_to icon_tag(:plus)+t(".create_new"), new_offered_service_path, class: "btn" %>
+<% end %>
+<br><br>

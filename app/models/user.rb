@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   
   has_many :projects
   has_many :ideas
+  has_many :offered_services
   
   validates :name, :email, presence: true
   

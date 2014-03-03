@@ -1,0 +1,4 @@
+<li>
+	<%= link_to offered_service.title, offered_service_path(offered_service) %>
+	<small><%= truncate(strip_tags(offered_service.rendered_description), length: 60) %></small>
+</li>
